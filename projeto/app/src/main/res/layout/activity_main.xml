@@ -30,7 +30,7 @@
         android:padding="20dp"
         android:hint="Altura"
         android:textColorHint="@color/cor_tema"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         />
 
     <Button
