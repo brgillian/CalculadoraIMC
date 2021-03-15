@@ -2,6 +2,8 @@ package com.gillian.calculadoraimc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.gillian.calculadoraimc.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -49,5 +51,26 @@ class MainActivity : AppCompatActivity() {
         imc.toString()
         resultado.setText("IMC: $imc \n $Mensagem")
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflate = menuInflater
+        inflate.inflate(R.menu.menu_principal, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.reset -> {
+                val limparEditPeso = binding.editPeso
+                val limparEditAltura = binding.editAltura
+                val limparMensagem = binding.mensagem
+
+                limparEditPeso.setText("")
+                limparEditAltura.setText("")
+                limparMensagem.setText("")
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
